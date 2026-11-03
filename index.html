@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カタカナ英語辞書</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>カタカナ英語辞書</h1>
+    <p>むずかしい言葉を、わかりやすく。</p>
+  </header>
+
+  <main>
+    <section class="search-area">
+      <h2>言葉を調べる</h2>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="例：インストール"
+        aria-label="調べたい言葉"
+      >
+      <button id="searchButton">検索</button>
+    </section>
+
+    <section id="resultArea" aria-live="polite">
+      <p>調べたい言葉を入力してください。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
