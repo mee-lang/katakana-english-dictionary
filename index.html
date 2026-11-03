@@ -3,33 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>カタカナ英語辞書</title>
+  <meta name="description" content="カタカナ英語を、わかりやすい日本語で調べられる辞書アプリ">
+  <title>カタカナことば辞典</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
-    <h1>カタカナ英語辞書</h1>
-    <p>むずかしい言葉を、わかりやすく。</p>
+  <header class="hero">
+    <div class="hero-icon" aria-hidden="true">📖</div>
+    <div>
+      <p class="eyebrow">やさしい日本語で、ことばを理解しよう</p>
+      <h1>カタカナことば辞典</h1>
+      <p class="hero-subtitle">むずかしいカタカナ英語を、わかりやすく。</p>
+    </div>
   </header>
 
-  <main>
-    <section class="search-area">
-      <h2>言葉を調べる</h2>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="例：インストール"
-        aria-label="調べたい言葉"
-      >
-      <button id="searchButton">検索</button>
+  <main class="container">
+    <section class="search-panel" aria-labelledby="search-heading">
+      <h2 id="search-heading">🔎 言葉を探す</h2>
+      <label for="searchInput" class="label">カタカナ英語や意味を入力してください</label>
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="例：インストール、現金を使わない" autocomplete="off">
+        <button id="searchButton" class="primary-button">検索</button>
+        <button id="clearButton" class="secondary-button" type="button">クリア</button>
+      </div>
+      <div class="filters">
+        <label for="categorySelect">カテゴリ</label>
+        <select id="categorySelect">
+          <option value="すべて">すべて</option>
+          <option value="日常生活">日常生活</option>
+          <option value="スマホ・インターネット">スマホ・インターネット</option>
+          <option value="仕事・手続き">仕事・手続き</option>
+          <option value="医療・健康">医療・健康</option>
+          <option value="学校・社会">学校・社会</option>
+          <option value="お金・買い物">お金・買い物</option>
+          <option value="防災・公共">防災・公共</option>
+        </select>
+        <span id="resultCount" class="result-count" aria-live="polite"></span>
+      </div>
     </section>
 
-    <section id="resultArea" aria-live="polite">
-      <p>調べたい言葉を入力してください。</p>
+    <section id="featuredSection" class="featured-section">
+      <h2>🌟 よく使われる言葉</h2>
+      <div id="featuredWords" class="chip-list"></div>
     </section>
+
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="section-heading">
+        <h2 id="results-heading">言葉の一覧</h2>
+        <span class="small-note">言葉を選ぶと詳しい説明が表示されます</span>
+      </div>
+      <div id="wordList" class="word-list"></div>
+      <p id="emptyMessage" class="empty-message" hidden>見つかりませんでした。別の言葉で検索してみてください。</p>
+    </section>
+
+    <section id="detailCard" class="detail-card" aria-labelledby="detailWord">
+      <div class="detail-top">
+        <span id="detailCategory" class="category-badge">カテゴリ</span>
+        <button id="speakButton" class="secondary-button speak-button" type="button">🔊 単語と意味を読み上げる</button>
+      </div>
+      <p class="detail-label">カタカナ英語</p>
+      <h2 id="detailWord">言葉を選んでください</h2>
+      <div class="detail-block easy-block">
+        <p class="detail-label">わかりやすい日本語</p>
+        <p id="detailEasy" class="detail-easy">一覧から言葉を選ぶと、ここに表示されます。</p>
+      </div>
+      <div class="detail-block">
+        <p class="detail-label">意味</p>
+        <p id="detailMeaning"></p>
+      </div>
+      <div class="detail-block">
+        <p class="detail-label">使用例</p>
+        <p id="detailExample"></p>
+      </div>
+      <p class="disclaimer">※ 言葉の意味や言い換えは、使われる場面によって異なる場合があります。</p>
+    </section>
+
+    <footer>
+      <p>カタカナことば辞典｜研究用プロトタイプ</p>
+      <p class="footer-small">このアプリは登録された辞書データを使って検索します。入力内容は外部に送信しません。</p>
+    </footer>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
